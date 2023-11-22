@@ -1,4 +1,4 @@
-const apiKey = '64d1fa749aec44f2a25369643c18e627';
+const apiKey = 'b247fdec45274798853eef3147ea0ab9';
 
 // dynamically add student id & name to page
 document.getElementById('student-info').textContent = '200547547 - Brandon Hann';
