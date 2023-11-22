@@ -1,19 +1,22 @@
 const apiKey = '64d1fa749aec44f2a25369643c18e627';
 
-document.addEventListener('DOMContentLoaded', function () {
-    document.getElementById('student-info').textContent = '200547547 - Brandon Hann';
+// dynamically add student id & name to page
+document.getElementById('student-info').textContent = '200547547 - Brandon Hann';
 
-    fetchNews();
-});
+// calls fetchNews() function
+fetchNews();
 
+// fetches articles from newsapi.org
 function fetchNews() {
-    fetch('https://newsapi.org/v2/top-headlines?country=us&apiKey=' + apiKey)
-        .then(response => response.json())
-        .then(data => displayNews(data.articles));
+    fetch('https://newsapi.org/v2/top-headlines?country=us&apiKey=' + apiKey) // fetch top headlines for us
+        .then(response => response.json()) // convert response to json
+        .then(data => displayNews(data.articles)); // call displayNews() function
 }
 
+// displays articles on page
 function displayNews(articles) {
     const container = document.getElementById('news-container');
+    // loop through articles and create news item for each
     articles.forEach(article => {
         const newsItem = document.createElement('div');
         newsItem.className = 'news-item';
@@ -22,6 +25,7 @@ function displayNews(articles) {
             <p>${article.description}</p>
             <a href="${article.url}" target="_blank">Read more...</a>
         `;
+        // append news item to container
         container.appendChild(newsItem);
     });
 }
